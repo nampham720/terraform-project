@@ -2,3 +2,4 @@ infra/.terraform/*
 infra/.terraform.*
 infra/terraform.tfstate.backup
 infra/terraform.tfstate 
+infra/modules/lambda_ingest_api/lambda.zip
