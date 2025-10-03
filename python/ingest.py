@@ -3,8 +3,8 @@ import uuid
 import random
 import time
 import json
-#https://<api_id>.execute-api.<region>.amazonaws.com/ingest"
-API_ENDPOINT = "https://lf78g3k9ae.execute-api.eu-north-1.amazonaws.com/ingest"
+
+API_ENDPOINT = "<API_ENDPOINT>/ingest"
 
 
 MESSAGES = [
@@ -18,7 +18,7 @@ def generate_message():
     
     msg = {
         "text_id": str(uuid.uuid4()),
-        "message": "Hello world"
+        "message": random.choice(MESSAGES)
     }
     return msg
 

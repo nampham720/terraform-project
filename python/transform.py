@@ -3,7 +3,7 @@ import json
 import csv
 import io
 
-S3_BUCKET = "test-pipeline-dev-datalake-99d8fedd"
+S3_BUCKET = "<S3_BUCKET_NAME>"
 RAW_PREFIX = "raw/"
 STAGED_PREFIX = "staged/"
 

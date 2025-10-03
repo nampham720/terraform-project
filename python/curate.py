@@ -4,22 +4,22 @@ import io
 import psycopg2
 import json
 
-S3_BUCKET = "test-pipeline-dev-datalake-99d8fedd"
+S3_BUCKET = "<Your bucket name>"
 STAGED_PREFIX = "staged/"
 CURATED_PREFIX = "curated/"
 
-SECRET_ARN = "arn:aws:secretsmanager:eu-north-1:672818178341:secret:test-pipeline-dev/rds/postgres-nsLmRP"
-REGION = "eu-north-1"
-print("S3")
+SECRET_ARN = "<Secret ARN after applied Terraform>"
+REGION = "<Region>"
+
 s3 = boto3.client("s3")
-print("Secret manager")
 sm = boto3.client("secretsmanager", region_name=REGION)
-print("About to connect")
 
 conn = psycopg2.connect(
-    host="test-pipeline-dev-pg.cbqeoym4edkb.eu-north-1.rds.amazonaws.com",
+    host="<your host>",
     port=5432,
-    dbname="testdb", user="testdbv1", password="^cE-ztYiYT5gQ:+K"
+    dbname="<your db>", 
+    user="<username>", 
+    password="<secret password>"
 )
 print("Connected")
 cur = conn.cursor()
