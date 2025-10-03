@@ -1,20 +1,37 @@
 # Data Pipeline with Terraform, IAM, S3, Cloudwatch, Lambda, RDS (PostgreSQL), VPC
 
-This project demonstrates Terraform skills in setting up Infrastructure in Cloud (AWS) and storing data into RDS. 
+This project demonstrates Terraform skills in setting up Infrastructure in Cloud Platform (AWS Free tier) and storing data into RDS. 
+
+Furthermore, it also includes Ingesting raw data to RDS => Transform raw data => Curate transformed data. 
 
 ---
 
 ## Architecture Overview
-`
-infra/
-- main.tf
-- output.tf
-- providers.tf
-- versions.tf
-- variables.tf
-- terraform.tfvars
 
-`
+<pre lang="markdown"> 
+infra/ 
+    └── lambda_src/
+          └── handler.py -- handle POST request 
+    └── modules/
+        └── ec2_k3s/
+        └── iam/
+        └── lambda_ingest_api/
+        └── rds_postgres/
+        └── vpc/
+        └── vpc_endpoints
+    ├── main.tf 
+    ├── output.tf 
+    ├── providers.tf 
+    ├── versions.tf 
+    ├── variables.tf 
+    ├── terraform.tfvars 
+ 
+python/
+    ├── ingest.py
+    ├── transform.py
+    ├── curate.py
+  </pre>
+
 1. **Producers** → Push events into **Kinesis Data Stream**.
 2. **Kinesis Data Firehose** → Consumes records from the stream and delivers them to an **S3 landing bucket**.
 3. **S3 Landing Bucket** → Stores raw event data partitioned by date.
