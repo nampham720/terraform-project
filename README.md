@@ -108,6 +108,15 @@ Copy the content of python/curate.py to /tmp/curate.py
 python3 curate.py
 ```
 
+If curate.py is stuck:
+* Go to AWS Secret Manager Console
+* Copy the Secret-id
+* Copy the result of this command:
+```bash
+aws secretsmanager get-secret-value <your secret-id> 
+```
+* Modify the curate.py accordingly.
+  
 You may need to install these libraries in EC2:
 * pip install -q boto3 psycopg2-binary 
 
