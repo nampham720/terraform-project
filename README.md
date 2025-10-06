@@ -20,7 +20,7 @@ infra/
         └── lambda_ingest_api/
         └── rds_postgres/
         └── vpc/
-        └── vpc_endpoints
+        └── vpc_endpoints/
     ├── main.tf 
     ├── output.tf 
     ├── providers.tf 
